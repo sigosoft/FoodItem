@@ -1,0 +1,93 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.example.dynex_000.fooditem.Splash">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controlooos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        tools:ignore="UselessParent">
+    <ImageView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.21"
+        android:src="@drawable/jack" />
+
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/hsrch"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:layout_marginTop="7dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:text="V 1.0.0"-->
+            <!--android:gravity="center" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controlooolls"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        tools:ignore="UselessParent">
+
+
+
+        <TextView
+            android:id="@+id/hsrcsh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_overlay"
+            android:layout_marginBottom="22dp"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:gravity="center" />
+
+
+
+    </LinearLayout>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/dummy_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/dummy_button" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

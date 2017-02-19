@@ -1,0 +1,338 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+    tools:context="com.example.dynex_000.fooditem.Registration">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+        <customfonts.MyTextView
+            android:id="@+id/hd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2a734"
+            android:text="Register Now !"
+            android:textSize="16dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:padding="9dp"
+            tools:ignore="HardcodedText,SpUsage" />
+    </LinearLayout>
+    <!--<LinearLayout
+        android:layout_below="@+id/image"
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+
+        tools:ignore="ObsoleteLayoutParam">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="180dp"
+            android:layout_centerHorizontal="true"
+
+
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>-->
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginTop="50dp"
+        tools:ignore="NestedScrolling">
+
+
+        <LinearLayout
+            android:layout_above="@+id/acc"
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/image"
+            tools:ignore="ObsoleteLayoutParam">
+
+
+            <customfonts.MyEditText
+                android:id="@+id/name"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact Person"
+                android:layout_marginLeft="46dp"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:maxLength="26"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dad8d8"/>
+
+
+            <customfonts.MyEditText
+                android:id="@+id/outlet"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Outlet Name"
+                android:layout_marginLeft="46dp"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:maxLength="26"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dad8d8"/>
+
+            <customfonts.MyEditText
+                android:id="@+id/address"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Addres"
+                android:layout_marginLeft="46dp"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:maxLength="26"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dad8d8"/>
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:inputType="phone"
+                android:id="@+id/mobile"
+                android:hint="Mobile Number"
+                android:layout_marginLeft="46dp"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:maxLength="14"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dad8d8"/>
+
+
+            <customfonts.MyEditText
+                android:id="@+id/email"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:layout_marginLeft="46dp"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:maxLength="35"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                android:inputType="textEmailAddress"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dad8d8"/>
+
+            <customfonts.MyEditText
+                android:id="@+id/password"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginLeft="46dp"
+                android:layout_marginRight="46dp"
+                android:drawableRight="@drawable/eye"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:background="#0000"
+                android:maxLength="16"
+                android:padding="14dp"
+                android:gravity="left"
+                android:inputType="textPassword"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+                android:background="#dad8d8"/>
+
+            <customfonts.MyEditText
+                android:id="@+id/cnfpassword"
+                android:textSize="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:layout_marginLeft="46dp"
+                android:layout_marginRight="46dp"
+                android:maxLength="16"
+                android:drawableRight="@drawable/eye"
+                android:textColorHint="@color/colorhint"
+                android:textColor="@color/colortext"
+                android:background="#0000"
+                android:padding="14dp"
+                android:gravity="left"
+                android:inputType="textPassword"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="56dp"
+                android:layout_height="1dp"
+android:id="@+id/fullscreen_content"
+                android:background="#dad8d8"/>
+
+
+
+            <customfonts.MyTextView
+
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f2a734"
+                android:text="Sign up"
+                android:textSize="16dp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
+                android:padding="9dp"
+                android:layout_marginTop="16dp"
+
+                tools:ignore="HardcodedText,SpUsage" />
+
+
+
+            <customfonts.MyTextView
+                android:id="@+id/acc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Already have account?"
+                android:layout_above="@+id/signinhere"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:lines="1"
+
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+            <TextView
+                android:id="@+id/signinhere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Signin here"
+                android:textColor="#f2a734"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:lines="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="22dp"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_weight="0.21"
+                android:src="@drawable/jack" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/dummy_button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/dummy_button" />
+
+        </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/colorbtnblue"
+            android:src="@mipmap/ic_home_white_48dp" />
+
+
+
+
+    </FrameLayout>
+</FrameLayout>

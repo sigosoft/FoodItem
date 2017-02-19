@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Jack and Trades</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_registration">Registration</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_help">Help</string>
+
+    <string name="title_activity_feedback">Feedback</string>
+
+    <string name="title_activity_about">About</string>
+
+    <string name="title_activity_no_cunnection_page">NoCunnectionPage</string>
+
+    <string name="title_activity_splash">Splash</string>
+
+    <string name="title_activity_help_registration">HelpRegistration</string>
+
+    <string name="title_activity_help_login">HelpLogin</string>
+
+    <string name="title_activity_help_search">HelpSearch</string>
+
+    <string name="create_one_now">Create one now</string>
+    <string name="creative">Creative</string>
+    <string name="dun_t_have_account">Dun\'t have account?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="call_driver">Call Driver</string>
+
+
+    <string-array name="srtype">
+        <item>Select Service Type</item>
+        <item>Taxi</item>
+        <item>Driver only</item>
+        <item>All Types Of Service</item>
+    </string-array>
+
+
+    <string-array name="vctype">
+        <item>Select Vehicle Type</item>
+        <item>Bus</item>
+        <item>Car</item>
+        <item>Auto Rickshaw</item>
+    </string-array>
+    <string name="title_activity_product_cnfm">ProductCnfm</string>
+    <string name="title_activity_procnfm">Procnfm</string>
+    <string name="title_activity_history">History</string>
+</resources>

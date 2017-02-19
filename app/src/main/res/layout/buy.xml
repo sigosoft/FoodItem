@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffff"
+    >
+    <customfonts.MyTextView
+        android:id="@+id/Back"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="#f61a1a"
+        android:text="Back"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:onClick="onClick"
+        android:clickable="true"
+        />
+
+
+
+    <customfonts.MyTextView
+        android:id="@+id/buy"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="#f2a734"
+        android:layout_marginRight="20dp"
+        android:text="Buy"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:padding="9dp"
+        android:onClick="onClick"
+        android:clickable="true"
+        />
+
+
+
+
+</android.support.v7.widget.Toolbar>

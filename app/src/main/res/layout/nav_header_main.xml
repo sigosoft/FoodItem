@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/jacktrades"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:weightSum="1">
+
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="89dp"-->
+        <!--android:paddingRight="@dimen/nav_header_height"-->
+        <!--android:paddingTop="@dimen/nav_header_vertical_spacing"-->
+        <!--android:src="@drawable/prf2"-->
+        <!--tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />-->
+
+
+
+
+</LinearLayout>

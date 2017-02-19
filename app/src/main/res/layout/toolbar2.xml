@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f2a734"
+    >
+
+    <ImageView
+        android:id="@+id/search_back"
+        android:layout_width="25dp"
+        android:clickable="true"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/back"/>
+
+    <ImageView
+        android:id="@+id/ic_arrows"
+        android:layout_width="25dp"
+        android:clickable="true"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/back"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/searched"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:hint="   Search here"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890 "
+        android:layout_gravity="center"
+        android:textColor="#000"/>
+
+
+    <ImageView
+        android:id="@+id/ic_arrowsa"
+        android:clickable="true"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="right"
+        android:background="@drawable/shopping"/>
+
+
+    <ImageView
+        android:id="@+id/search"
+        android:clickable="true"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="right"
+        android:background="@drawable/search"/>
+
+
+
+</android.support.v7.widget.Toolbar>

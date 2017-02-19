@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.example.dynex_000.fooditem.HelpRegistration">
+
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="  1.hlhklfjdfldjfkldjfkldjf lfjdlfjfkldjkl jkfdjfkljdklj "
+        android:textColor="#33b5e5"
+        android:textStyle="bold" />
+
+
+
+    <ImageView
+        android:id="@+id/fullscr"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.21"
+        android:src="@drawable/fbp" />
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/dummy_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/dummy_button" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

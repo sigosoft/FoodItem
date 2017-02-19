@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="com.example.dynex_000.fooditem.About">
+
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Call  Driver"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:text="Version1.0.1"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="208dp"
+        android:layout_height="108dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:layout_weight="0.21"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="240dp"
+        android:text="Developed By"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="260dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dynexo IT Solutions"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"
+        android:text="Your Added Link Shows Here"
+        />
+
+    <TextView
+        android:id="@+id/textView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="45dp"
+        android:text="Your Added Link Shows Here"
+        android:gravity="center" />
+    <ImageView
+        android:id="@+id/fullscr"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="65dp"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="0.21"
+        android:src="@drawable/fbp" />
+
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+    <Button
+        android:id="@+id/dummy_button"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/dummy_button" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="542dp"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
