@@ -76,7 +76,7 @@
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Contact Person"
+                android:hint="Full Name"
                 android:layout_marginLeft="46dp"
                 android:textColorHint="@color/colorhint"
                 android:textColor="@color/colortext"
@@ -99,7 +99,7 @@
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Outlet Name"
+                android:hint="Outlet"
                 android:layout_marginLeft="46dp"
                 android:textColorHint="@color/colorhint"
                 android:textColor="@color/colortext"
@@ -236,7 +236,7 @@
                 android:layout_marginLeft="56dp"
                 android:layout_marginRight="56dp"
                 android:layout_height="1dp"
-android:id="@+id/fullscreen_content"
+                android:id="@+id/fullscreen_content"
                 android:background="#dad8d8"/>
 
 

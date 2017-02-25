@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+
 public class DynexoPrefManager {
 	
 	public static void setResponse(String key, String value, Context context) {
@@ -38,6 +40,8 @@ public class DynexoPrefManager {
 	public String getSavedName(Context context){
 		return showSavedResponse("name", context);
 	}
+
+
 
 
 //.......................AREA OF USER......................................................................

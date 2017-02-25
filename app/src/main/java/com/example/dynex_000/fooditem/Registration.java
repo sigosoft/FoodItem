@@ -54,10 +54,10 @@ public class Registration extends AppCompatActivity {
 
 
 
-            MyTextView signup;
-
+    MyTextView signup;
+    TextView signinhere;
     EditText mobile;
-   MyEditText name,outlet,address,email,password,cnfpassword;
+    MyEditText name,outlet,address,email,password,cnfpassword;
 
     String nameS,outlet_name,mobileS,emailS,passwordS,cnfpasswordS,Saddress,emailPattern,status;
 
@@ -154,6 +154,16 @@ public class Registration extends AppCompatActivity {
         password =(MyEditText)findViewById(R.id.password);
         cnfpassword = (MyEditText)findViewById(R.id.cnfpassword);
         signup = (MyTextView)findViewById(R.id.signup);
+        signinhere = (TextView)findViewById(R.id.signinhere);
+
+
+        signinhere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Registration.this,login.class);
+                startActivity(i);
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

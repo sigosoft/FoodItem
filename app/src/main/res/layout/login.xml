@@ -69,9 +69,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:layout_gravity="center_vertical"
         android:layout_marginBottom="3dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="17dp"
         tools:ignore="NestedScrolling">
 
         <LinearLayout
@@ -80,9 +79,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
             tools:ignore="ObsoleteLayoutParam">
 
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_weight="0.21"
+                android:src="@drawable/jack" />
 
             <customfonts.MyEditText
                 android:id="@+id/email"
@@ -180,14 +187,7 @@
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_weight="0.21"
-                android:src="@drawable/jack" />
+
 
 
         </LinearLayout>

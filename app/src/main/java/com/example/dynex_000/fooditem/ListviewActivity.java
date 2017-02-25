@@ -36,13 +36,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import customfonts.MyAutoCompleteEdittext;
+import customfonts.MyTextView;
 
 
 public class ListviewActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     private ListView listview;
     private ImageView imsearch,ic_arrows,ic_arrowsa,search_back;
-
+MyTextView add_to_cart;
     AutoCompleteTextView Edsearch;
 
  //   ProgressDialog pd ;
@@ -77,6 +78,8 @@ public class ListviewActivity extends AppCompatActivity  implements NavigationVi
 
     String[] languages;
 
+
+    static ArrayList<String> listqnty = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,10 +98,18 @@ public class ListviewActivity extends AppCompatActivity  implements NavigationVi
         ic_arrows = (ImageView)findViewById(R.id.ic_arrows);
         Edsearch =(AutoCompleteTextView)findViewById(R.id.searched);
         listview = (ListView) findViewById(R.id.listview);
+        add_to_cart = (MyTextView)findViewById(R.id.add_to_cart);
         Edsearch.setVisibility(View.GONE);
         search_back.setVisibility(View.GONE);
 
+        add_to_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Toast.makeText(getApplicationContext(), listqnty.get(0), Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         //pd = ProgressDialog.show(ListviewActivity.this, "", "Please wait...", true);
 
