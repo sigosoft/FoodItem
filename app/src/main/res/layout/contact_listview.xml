@@ -21,7 +21,8 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#f4eded">
         <include layout="@layout/toolbar2"/>
 </LinearLayout>
 
@@ -37,15 +38,15 @@
     </ListView>
 
 
-    <LinearLayout
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:gravity="bottom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
 
 
-        <include layout="@layout/add_to_cart"/>
+        <!--<include layout="@layout/add_to_cart"/>-->
 
     <!--<LinearLayout
         android:layout_width="match_parent"
@@ -188,7 +189,7 @@
     </LinearLayout>-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 
 

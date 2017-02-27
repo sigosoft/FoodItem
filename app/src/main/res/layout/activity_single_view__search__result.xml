@@ -83,6 +83,7 @@
                 android:layout_height="27dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
+                android:textAlignment="center"
                 android:inputType="number"
                 android:layout_marginLeft="10dp"
                 android:background="@layout/rounded_border_edittext"

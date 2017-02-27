@@ -22,6 +22,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -39,7 +40,7 @@ import customfonts.MyAutoCompleteEdittext;
 import customfonts.MyTextView;
 
 
-public class ListviewActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class ListviewActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener,CustomButtonListener {
 
     private ListView listview;
     private ImageView imsearch,ic_arrows,ic_arrowsa,search_back;
@@ -54,7 +55,7 @@ MyTextView add_to_cart;
 //    private String title;
 //    private String description;
 //    private String price;
-    String category;
+    String category,pMa;
 
 
     private SpecialAdapter4 sp;
@@ -79,7 +80,11 @@ MyTextView add_to_cart;
     String[] languages;
 
 
-    static ArrayList<String> listqnty = new ArrayList<String>();
+   public static ArrayList<String> listKey = new ArrayList<String>();
+    public static ArrayList<String> listPrice = new ArrayList<String>();
+
+
+    public static HashMap<String, String> productQnty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +94,7 @@ MyTextView add_to_cart;
       //  DynexoPrefManager D = new DynexoPrefManager();
 
 
-
+        productQnty = new HashMap<String, String>();
         Intent p = getIntent();
         category = p.getStringExtra("name");
         imsearch = (ImageView)findViewById(R.id.search);
@@ -98,18 +103,28 @@ MyTextView add_to_cart;
         ic_arrows = (ImageView)findViewById(R.id.ic_arrows);
         Edsearch =(AutoCompleteTextView)findViewById(R.id.searched);
         listview = (ListView) findViewById(R.id.listview);
-        add_to_cart = (MyTextView)findViewById(R.id.add_to_cart);
+       // add_to_cart = (MyTextView)findViewById(R.id.add_to_cart);
         Edsearch.setVisibility(View.GONE);
         search_back.setVisibility(View.GONE);
 
-        add_to_cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        productQnty.clear();
+        listKey.clear();
+        listPrice.clear();
 
-                Toast.makeText(getApplicationContext(), listqnty.get(0), Toast.LENGTH_LONG).show();
-
-            }
-        });
+//        add_to_cart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//
+////                DynexoPrefManager q = new DynexoPrefManager();
+////                pMa= q.getSavedMailId(ListviewActivity.this);
+////
+////                new LoadDataph().execute();
+////
+//
+//            }
+//        });
 
         //pd = ProgressDialog.show(ListviewActivity.this, "", "Please wait...", true);
 
@@ -192,6 +207,20 @@ MyTextView add_to_cart;
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
+    }
+
+    @Override
+    public void onButtonClickListener(int position, EditText editText, int value) {
+
+
+        int quantity = Integer.parseInt(editText.getText().toString());
+        quantity = quantity *value;
+        if(quantity<0)
+            quantity=0;
+        editText.setText(quantity);
+
+
+
     }
 
 
@@ -489,5 +518,121 @@ MyTextView add_to_cart;
 
         startActivity(i);
         finish();
+    }
+
+
+
+
+
+
+
+
+
+//.............................Load to shopping bag..................................................................
+
+    public class LoadDataph extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+        String responsefromserver = null;
+        HashMap<String, String> nameValuePairs;
+        @Override
+        // can use UI thread here
+        protected void onPreExecute() {
+
+            this.progressDialog = ProgressDialog.show(
+                    ListviewActivity.this, "", " Loading .....");
+
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            this.progressDialog.dismiss();
+
+
+            if (responsefromserver == null) {
+                //serverDown();
+            }
+            else if (responsefromserver.contains("<html>")) {
+                Log.e("ResponseLocation", responsefromserver);
+                // serverDown();
+            }
+            else if (responsefromserver.equals("no_data")) {
+                //	Toast.makeText(getApplicationContext(), "There is No Request Available....", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+
+                Intent k = new Intent(ListviewActivity.this, Procnfm.class);
+                startActivity(k);
+                finish();
+
+            }
+
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+            // HTTP post
+
+            try {
+                try {
+
+                    int p;
+
+                   for(p=0;p<=listKey.size();p++)
+                   {
+                       String qnty_to_buy= productQnty.get(listKey.get(p));
+                       String product_to_buy= listKey.get(p);
+                       String price_to_buy= listPrice.get(p);
+
+
+
+
+                    nameValuePairs = new HashMap<String, String>();
+                    nameValuePairs.put("user_mail", pMa);
+                    nameValuePairs.put("prod_name", product_to_buy);
+                    nameValuePairs.put("qnty", qnty_to_buy);
+                    nameValuePairs.put("price", price_to_buy);
+                    nameValuePairs.put("status", "wait");
+
+                    SendRequestServer req = new SendRequestServer();
+                    String url1 = "android_insert_shopping_bag.php";
+                    responsefromserver = req.requestSender(url1, nameValuePairs, ListviewActivity.this);
+                }
+//                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
+//
+//                    com.dynexo.SendRequestServer req = new com.dynexo.SendRequestServer();
+//                    String url1 = "get_donor.php";
+//                    responsefromserver = req.requestSender(url1, namevaluePairs);
+
+
+                    try {
+                        jArray = new JSONArray(responsefromserver);
+                        JSONObject json_data = null;
+                        for (int i = 0; i < jArray.length(); i++) {
+                            json_data = jArray.getJSONObject(i);
+
+//
+
+
+
+
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.toString(),
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 }

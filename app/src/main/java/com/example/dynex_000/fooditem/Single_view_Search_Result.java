@@ -159,7 +159,6 @@ MyTextView buy,Back;
         protected void onPostExecute(Void unused) {
             this.progressDialog.dismiss();
 
-
             if (responsefromserver == null) {
                 //serverDown();
             }
@@ -169,11 +168,11 @@ MyTextView buy,Back;
             }
             else if (responsefromserver.equals("no_data")) {
                 //	Toast.makeText(getApplicationContext(), "There is No Request Available....", Toast.LENGTH_LONG).show();
-
+            }
+            else if (responsefromserver.equals("exist")) {
+                	Toast.makeText(getApplicationContext(), "Product already exist....", Toast.LENGTH_LONG).show();
             }
             else{
-
-
 
                 Intent k = new Intent(Single_view_Search_Result.this, Procnfm.class);
                 startActivity(k);
@@ -193,16 +192,18 @@ MyTextView buy,Back;
                 try {
 
 
-                    nameValuePairs = new HashMap<String, String>();
-                    nameValuePairs.put("user_mail",pMa);
-                    nameValuePairs.put("prod_name",name);
-                    nameValuePairs.put("qnty",quandity);
-                    nameValuePairs.put("price",f_price.toString());
-                    nameValuePairs.put("status","wait");
 
-                    SendRequestServer req = new SendRequestServer();
-                    String url1 = "android_insert_shopping_bag.php";
-                    responsefromserver = req.requestSender(url1, nameValuePairs,Single_view_Search_Result.this);
+                        nameValuePairs = new HashMap<String, String>();
+                        nameValuePairs.put("user_mail", pMa);
+                        nameValuePairs.put("image", image_url);
+                        nameValuePairs.put("prod_name", name);
+                        nameValuePairs.put("qnty", quandity);
+                        nameValuePairs.put("price", f_price.toString());
+                        nameValuePairs.put("status", "wait");
+
+                        SendRequestServer req = new SendRequestServer();
+                        String url1 = "android_insert_shopping_bag.php";
+                        responsefromserver = req.requestSender(url1, nameValuePairs, Single_view_Search_Result.this);
 
 //                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
 //

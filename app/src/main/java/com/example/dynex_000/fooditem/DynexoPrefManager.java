@@ -31,6 +31,14 @@ public class DynexoPrefManager {
 		return false;
 	}
 
+//...............................NAME OF USER............................................................
+
+	public void saveDeleteProduct(String key, Context context){
+		setResponse("name", key, context);
+	}
+	public String getDeleteProduct(Context context){
+		return showSavedResponse("name", context);
+	}
 
 //...............................NAME OF USER............................................................
 

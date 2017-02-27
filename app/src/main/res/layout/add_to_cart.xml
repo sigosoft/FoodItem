@@ -10,14 +10,13 @@
     <customfonts.MyTextView
         android:id="@+id/add_to_cart"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="#f2a734"
         android:text="Add to Cart"
-        android:textSize="16dp"
+        android:textSize="24dp"
         android:textColor="#fff"
         android:gravity="center"
         android:layout_gravity="center"
-        android:padding="9dp"
         android:clickable="true"
         />
 

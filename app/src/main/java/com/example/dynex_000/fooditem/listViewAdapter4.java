@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,12 +31,24 @@ public class listViewAdapter4 extends BaseAdapter {
     private Context context;
     private ArrayList<BeanClassForListView4> beanClassArrayList;
 
+    public ArrayList quantity = new ArrayList();
+    CustomButtonListener customButtonListener;
+
 
     public listViewAdapter4(Context context, ArrayList<BeanClassForListView4> beanClassArrayList) {
         this.context = context;
         this.beanClassArrayList = beanClassArrayList;
 
+        for(int i =0; i< beanClassArrayList.size();i++)
+        {
+            quantity.add(0);
+            //quantity[i]=0;
+        }
+    }
 
+    public void setCustomButtonListener(CustomButtonListener customButtonListner)
+    {
+        this.customButtonListener = customButtonListner;
     }
 
     @Override
@@ -57,7 +70,7 @@ public class listViewAdapter4 extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
 
-        ViewHoder viewHoder;
+        final ViewHoder viewHoder;
         if (convertView == null) {
 
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -66,10 +79,10 @@ public class listViewAdapter4 extends BaseAdapter {
             viewHoder = new ViewHoder();
 
             viewHoder.banar1 = (ImageView) convertView.findViewById(R.id.banar1);
-          //  viewHoder.minus = (ImageView) convertView.findViewById(R.id.minus);
-          //  viewHoder.plus = (ImageView) convertView.findViewById(R.id.plus);
+         //  viewHoder.minus = (ImageButton) convertView.findViewById(R.id.minus);
+         // viewHoder.plus = (ImageButton) convertView.findViewById(R.id.plus);
             viewHoder.title = (TextView) convertView.findViewById(R.id.title);
-          //  viewHoder.txt = (EditText) convertView.findViewById(R.id.txt);
+         //  viewHoder.txt = (EditText) convertView.findViewById(R.id.txt);
             viewHoder.description = (TextView) convertView.findViewById(R.id.description);
 
 
@@ -103,27 +116,47 @@ public class listViewAdapter4 extends BaseAdapter {
         Picasso.with(context).load(base).into(viewHoder.banar1);
 
 
-        viewHoder.plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ViewHoder hoder = (ViewHoder) view.getTag();
-
+//        viewHoder.plus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                int quantity = Integer.parseInt( viewHoder.txt.getText().toString());
+//                int q =quantity+1;
+//                String qt =q+"";
+//                viewHoder.txt.setText(qt);
+//                BeanClassForListView4 beanClass = (BeanClassForListView4) getItem(position);
+//                String price = beanClass.getDescription();
+//                ListviewActivity.listPrice.add(price);
+//                String key =beanClass.getTitle();
+//                ListviewActivity.productQnty.put(key,qt);
+//                ListviewActivity.listKey.add(key);
+//               // Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        viewHoder.minus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                int quantity = Integer.parseInt( viewHoder.txt.getText().toString());
+//                if(quantity>0) {
+//                    int q = quantity - 1;
+//                    String qt = q + "";
+//                    viewHoder.txt.setText(qt);
+//
+//
 //                    BeanClassForListView4 beanClass = (BeanClassForListView4) getItem(position);
-//                    TextView  txt = (TextView) view.findViewById(R.id.txt);
-              //  hoder.txt .setText("1");
-               //  ListviewActivity.listqnty.add(hoder.txt.getText().toString());
-                Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        viewHoder.minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                BeanClassForListView4 beanClass = (BeanClassForListView4) getItem(position);
-                Toast.makeText(context,beanClass.getTitle() , Toast.LENGTH_SHORT).show();
-            }
-        });
+//
+//                    String price = beanClass.getDescription();
+//                    ListviewActivity.listPrice.add(price);
+//
+//                    String key =beanClass.getTitle();
+//                    ListviewActivity.listKey.add(key);
+//
+//                    ListviewActivity.productQnty.put(key,qt);
+//                }
+//               // Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
         return convertView;
@@ -140,10 +173,11 @@ public class listViewAdapter4 extends BaseAdapter {
 
     private class ViewHoder{
 
-        ImageView banar1,minus,plus;
+        ImageView banar1;
         TextView title;
         TextView description;
-       // EditText txt;
+        ImageButton minus,plus;
+        EditText txt;
 
 
     }

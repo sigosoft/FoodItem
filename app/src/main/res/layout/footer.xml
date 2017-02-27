@@ -6,15 +6,30 @@
     android:background="#ffff"
     >
 
+    <customfonts.MyTextView
+        android:id="@+id/add"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="1dp"
+        android:background="#f2a734"
+        android:text="APPLY"
+        android:textSize="14dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:clickable="true"
+        />
+
 
     <customfonts.MyTextView
         android:id="@+id/ltr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total:"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:textColor="#f61a1a"
         android:gravity="center"
+        android:layout_marginLeft="25dp"
         android:padding="5dp"
         android:onClick="onClick"
         android:clickable="true"
@@ -24,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00.0"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:textColor="#f61a1a"
         android:gravity="center"
         android:padding="8dp"
@@ -33,21 +48,18 @@
         />
     <customfonts.MyTextView
         android:id="@+id/cnfm"
-        android:layout_width="160dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="#f61a1a"
-        android:text="CONFIRM"
-
-        android:layout_marginRight="20dp"
-        android:textSize="16dp"
+        android:text="SUBMIT"
+android:layout_marginRight="10dp"
+        android:textSize="14dp"
         android:textColor="#fff"
         android:gravity="center"
         android:layout_gravity="right"
-        android:padding="9dp"
         android:onClick="onClick"
         android:clickable="true"
         />
-
 
 
 

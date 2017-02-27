@@ -32,20 +32,25 @@ public class Procnfm extends AppCompatActivity {
     private SpecialAdapter2 sp;
     private ListView listview;
     private ArrayList<BeanClassForListView2> beanClassArrayList;
-    String pMa,pro_name,user_mail,qnty,s_price;
+    String pMa,pro_name,user_mail,qnty,s_price,st;
     Integer tt=0;
-    MyTextView cnfm,ttl;
+   static MyTextView cnfm,ttl,add;
 
     String[] PRICE,QUANTITY,PRO_NAME;
     static ArrayList<String> list = new ArrayList<String>();
     static ArrayList<String> listImage = new ArrayList<String>();
     static ArrayList<String> listTitle = new ArrayList<String>();
-    static ArrayList<String> listMobile = new ArrayList<String>();
+
     static ArrayList<String> listVehicleType = new ArrayList<String>();
     static ArrayList<String> listBrandName = new ArrayList<String>();
     static ArrayList<String> listEmail = new ArrayList<String>();
     static ArrayList<String> listServiceType = new ArrayList<String>();
 
+
+    static ArrayList<String> listp_name = new ArrayList<String>();
+    static ArrayList<String> listp_qnty = new ArrayList<String>();
+    static ArrayList<String> listp_amnt = new ArrayList<String>();
+    String[] DeletetedProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,9 @@ public class Procnfm extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setVisibility(View.GONE);
 
+
+
+
         list.clear();
         listImage.clear();
         listTitle.clear();
@@ -62,7 +70,16 @@ public class Procnfm extends AppCompatActivity {
 
         ttl = (MyTextView)findViewById(R.id.ttl);
         cnfm =(MyTextView)findViewById(R.id.cnfm);
+        add =(MyTextView)findViewById(R.id.add);
         listview = (ListView) findViewById(R.id.listview);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               new LoadDataph().execute();
+
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -82,30 +99,63 @@ public class Procnfm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                message ="";
+                DynexoPrefManager u = new DynexoPrefManager();
+                String pl = u.getDeleteProduct(Procnfm.this);
+                //  u.saveDeleteProduct("",Procnfm.this);
 
-                for(int i=0;i<PRO_NAME.length;i++)
+
+
+                if(pl == null)
                 {
-                    message =message+" \n"+ PRO_NAME[i]+"       "+QUANTITY[i]+"       Rs."+PRICE[i]+" \n";
+
+                   // new LoadData().execute();
+                    sendMail();
+
 
                 }
-
-              message=  message+"\n"+" Total Amount: "+tt.toString();
-
-                new LoadDataq().execute();
+                else
+                {
+                    DeletetedProducts = pl.split(",");
+                    new DeleteProductBeforeCnfm().execute();
+                    // Toast.makeText(this, DeletetedProducts[1], Toast.LENGTH_LONG).show();
+                }
 
 
 
             }
         });
+        DynexoPrefManager u = new DynexoPrefManager();
+        String pl = u.getDeleteProduct(Procnfm.this);
+      //  u.saveDeleteProduct("",Procnfm.this);
 
-        new LoadData().execute();
+
+
+        if(pl == null)
+        {
+//            //
+           new LoadData().execute();
+//            Toast.makeText(this, "hi", Toast.LENGTH_LONG).show();
+//        }
+//        else
+//        {
+//
+        }
+        else
+        {
+            DeletetedProducts = pl.split(",");
+            new DeleteProduct().execute();
+           // Toast.makeText(this, DeletetedProducts[1], Toast.LENGTH_LONG).show();
+        }
+      //  new LoadData().execute();
+
     }
 
     public void setListview() {
 
 
-
+        listp_name.clear();
+        listp_qnty.clear();
+        listp_amnt.clear();
 
         PRICE = listImage.toArray(new String[listImage.size()]);
         QUANTITY = listVehicleType.toArray(new String[list.size()]);
@@ -116,8 +166,10 @@ public class Procnfm extends AppCompatActivity {
         final String[] IMAGE = listImage.toArray(new String[listImage.size()]);
         final String[] DESCRIPTION = listVehicleType.toArray(new String[list.size()]);
         final String[] TITLE = listTitle.toArray(new String[listTitle.size()]);
+        final String[] IMAGE_Org = listBrandName.toArray(new String[listBrandName.size()]);
 
-       // Toast.makeText(Procnfm.this, "There is no Cart List Here...", Toast.LENGTH_SHORT).show();
+
+        // Toast.makeText(Procnfm.this, "There is no Cart List Here...", Toast.LENGTH_SHORT).show();
 
 //        if(listTitle.size()<1)
 //        {
@@ -135,7 +187,7 @@ public class Procnfm extends AppCompatActivity {
 
 
 
-                BeanClassForListView2 beanClass = new BeanClassForListView2(IMAGE[i], TITLE[i], DESCRIPTION[i]);
+                BeanClassForListView2 beanClass = new BeanClassForListView2(IMAGE[i], TITLE[i], DESCRIPTION[i],IMAGE_Org[i]);
                 beanClassArrayList.add(beanClass);
 
             }
@@ -155,10 +207,9 @@ public class Procnfm extends AppCompatActivity {
 
 
 
-
     //.............................LOAD List Items to Cnfm..................................................................
 
-    private class LoadData extends AsyncTask<Void, Void, Void> {
+    public class LoadData extends AsyncTask<Void, Void, Void> {
         private ProgressDialog progressDialog;
         String responsefromserver = null;
         HashMap<String, String> nameValuePairs;
@@ -255,6 +306,7 @@ public class Procnfm extends AppCompatActivity {
                             listImage.add(json_data.getString("price"));
                             listVehicleType.add(json_data.getString("qnty"));
                             listTitle.add(json_data.getString("prod_name"));
+                            listBrandName.add(json_data.getString("image"));
 
                             tt =Integer.decode(s_price)+tt;
 
@@ -327,7 +379,7 @@ public class Procnfm extends AppCompatActivity {
                     nameValuePairs = new HashMap<String, String>();
                     nameValuePairs.put("email",pMa);
                     nameValuePairs.put("message",message);
-                    nameValuePairs.put("price",tt.toString());
+                    nameValuePairs.put("price",st);
 
 
                     SendRequestServer req = new SendRequestServer();
@@ -360,5 +412,351 @@ public class Procnfm extends AppCompatActivity {
             return null;
         }
     }
+
+
+
+
+
+
+
+    //.............................Load to shopping bag..................................................................
+
+    public class LoadDataph extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+        String responsefromserver = null;
+        HashMap<String, String> nameValuePairs;
+        @Override
+        // can use UI thread here
+        protected void onPreExecute() {
+
+            this.progressDialog = ProgressDialog.show(
+                    Procnfm.this, "", " Loading .....");
+
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            this.progressDialog.dismiss();
+
+
+            if (responsefromserver == null) {
+                //serverDown();
+            }
+            else if (responsefromserver.contains("<html>")) {
+                Log.e("ResponseLocation", responsefromserver);
+                // serverDown();
+            }
+            else if (responsefromserver.equals("no_data")) {
+                //	Toast.makeText(getApplicationContext(), "There is No Request Available....", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+
+
+                onBackPressed();
+
+//                Intent k = new Intent(Procnfm.this, Procnfm.class);
+//                startActivity(k);
+                finish();
+
+            }
+
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+            // HTTP post
+
+            try {
+                try {
+
+                    int p;
+                    for (p=0;p<=listp_name.size();p++) {
+
+
+                        nameValuePairs = new HashMap<String, String>();
+                        nameValuePairs.put("user_mail", pMa);
+                        // nameValuePairs.put("image", image_url);
+                        nameValuePairs.put("prod_name", listp_name.get(p));
+                        nameValuePairs.put("qnty", listp_qnty.get(p));
+                        nameValuePairs.put("price", listp_amnt.get(p));
+                        nameValuePairs.put("status", "wait");
+
+                        SendRequestServer req = new SendRequestServer();
+                        String url1 = "android_update_shopping_bag.php";
+                        responsefromserver = req.requestSender(url1, nameValuePairs, Procnfm.this);
+
+//                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
+//
+//                    com.dynexo.SendRequestServer req = new com.dynexo.SendRequestServer();
+//                    String url1 = "get_donor.php";
+//                    responsefromserver = req.requestSender(url1, namevaluePairs);
+
+                    }
+                    try {
+                        jArray = new JSONArray(responsefromserver);
+                        JSONObject json_data = null;
+                        for (int i = 0; i < jArray.length(); i++) {
+                            json_data = jArray.getJSONObject(i);
+
+//
+
+
+
+
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.toString(),
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+
+//.............................Load to shopping bag..................................................................
+
+    public class DeleteProduct extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+        String responsefromserver = null;
+        HashMap<String, String> nameValuePairs;
+        @Override
+        // can use UI thread here
+        protected void onPreExecute() {
+
+            this.progressDialog = ProgressDialog.show(
+                    Procnfm.this, "", " Loading .....");
+
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            this.progressDialog.dismiss();
+
+
+            if (responsefromserver == null) {
+                //serverDown();
+            }
+            else if (responsefromserver.contains("<html>")) {
+                Log.e("ResponseLocation", responsefromserver);
+                // serverDown();
+            }
+            else if (responsefromserver.equals("no_data")) {
+                //	Toast.makeText(getApplicationContext(), "There is No Request Available....", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                DynexoPrefManager jk = new DynexoPrefManager();
+
+                jk.saveDeleteProduct(null,Procnfm.this);
+                Intent k = new Intent(Procnfm.this, Procnfm.class);
+                startActivity(k);
+                finish();
+
+            }
+
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+            // HTTP post
+
+            try {
+                try {
+
+                   int o;
+
+                   for(o =0;o<DeletetedProducts.length;o++) {
+
+                       nameValuePairs = new HashMap<String, String>();
+                       nameValuePairs.put("user_mail", pMa);
+                       // nameValuePairs.put("image", image_url);
+                       nameValuePairs.put("prod_name", DeletetedProducts[o]);
+                       nameValuePairs.put("status", "wait");
+                       SendRequestServer req = new SendRequestServer();
+                       String url1 = "android_delete_shopping_bag.php";
+                       responsefromserver = req.requestSender(url1, nameValuePairs, Procnfm.this);
+                   }
+//                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
+//
+//                    com.dynexo.SendRequestServer req = new com.dynexo.SendRequestServer();
+//                    String url1 = "get_donor.php";
+//                    responsefromserver = req.requestSender(url1, namevaluePairs);
+
+
+                    try {
+                        jArray = new JSONArray(responsefromserver);
+                        JSONObject json_data = null;
+                        for (int i = 0; i < jArray.length(); i++) {
+                            json_data = jArray.getJSONObject(i);
+
+//
+
+
+
+
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.toString(),
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+
+
+    //.............................Delete Before Confirm..................................................................
+
+    public class DeleteProductBeforeCnfm extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+        String responsefromserver = null;
+        HashMap<String, String> nameValuePairs;
+        @Override
+        // can use UI thread here
+        protected void onPreExecute() {
+
+            this.progressDialog = ProgressDialog.show(
+                    Procnfm.this, "", " Loading .....");
+
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            this.progressDialog.dismiss();
+
+
+            if (responsefromserver == null) {
+                //serverDown();
+            }
+            else if (responsefromserver.contains("<html>")) {
+                Log.e("ResponseLocation", responsefromserver);
+                // serverDown();
+            }
+            else if (responsefromserver.equals("no_data")) {
+                //	Toast.makeText(getApplicationContext(), "There is No Request Available....", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                DynexoPrefManager jk = new DynexoPrefManager();
+
+                jk.saveDeleteProduct(null,Procnfm.this);
+
+               sendMail();
+            }
+
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+            // HTTP post
+
+            try {
+                try {
+
+                    int o;
+
+                    for(o =0;o<DeletetedProducts.length;o++) {
+
+                        nameValuePairs = new HashMap<String, String>();
+                        nameValuePairs.put("user_mail", pMa);
+                        // nameValuePairs.put("image", image_url);
+                        nameValuePairs.put("prod_name", DeletetedProducts[o]);
+                        nameValuePairs.put("status", "wait");
+                        SendRequestServer req = new SendRequestServer();
+                        String url1 = "android_delete_shopping_bag.php";
+                        responsefromserver = req.requestSender(url1, nameValuePairs, Procnfm.this);
+                    }
+//                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
+//
+//                    com.dynexo.SendRequestServer req = new com.dynexo.SendRequestServer();
+//                    String url1 = "get_donor.php";
+//                    responsefromserver = req.requestSender(url1, namevaluePairs);
+
+
+                    try {
+                        jArray = new JSONArray(responsefromserver);
+                        JSONObject json_data = null;
+                        for (int i = 0; i < jArray.length(); i++) {
+                            json_data = jArray.getJSONObject(i);
+
+//
+
+
+
+
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.toString(),
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+
+
+
+public void sendMail()
+{
+
+
+     st= ttl.getText().toString();
+
+
+    DynexoPrefManager q = new DynexoPrefManager();
+   String  name= q.getSavedName(Procnfm.this);
+    String outlet =q.getSavedState(Procnfm.this);
+    String mobile = q.getSavedUserMobile(Procnfm.this);
+    message ="";
+
+    for(int i=0;i<PRO_NAME.length;i++)
+    {
+        message =message+" \n"+ PRO_NAME[i]+"       "+QUANTITY[i]+"       Rs."+PRICE[i]+" \n";
+
+    }
+
+    message=  message+"\n"+" Total Amount: "+tt.toString();
+    message = message+"\n"+"\n"+"\n"+"  "+"Name: "+name;
+    message =message+"\n"+"  "+"Outlet: "+outlet;
+    message = message+"\n"+"  "+"Mobile: "+mobile;
+
+    new LoadDataq().execute();
+
+
+}
 
 }

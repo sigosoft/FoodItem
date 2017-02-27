@@ -64,7 +64,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -94,9 +94,58 @@
 
 
 
-
-
                 </LinearLayout>
+
+
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="right"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<ImageButton-->
+                        <!--android:focusable="false"-->
+                        <!--android:focusableInTouchMode="false"-->
+                        <!--android:id="@+id/minus"-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_marginTop="8dp"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--android:background="@drawable/minus"/>-->
+
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/txt"-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="27dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:inputType="number"-->
+                        <!--android:text="0"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:textAlignment="center"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:background="@layout/rounded_border_edittext"-->
+                        <!--/>-->
+
+                    <!--<ImageButton-->
+                        <!--android:focusable="false"-->
+                        <!--android:focusableInTouchMode="false"-->
+                        <!--android:id="@+id/plus"-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_marginTop="8dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:background="@drawable/plus"/>-->
+
+
+
+
+
+                <!--</LinearLayout>-->
+
+
                 <!--<View-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_marginLeft="6dp"-->
