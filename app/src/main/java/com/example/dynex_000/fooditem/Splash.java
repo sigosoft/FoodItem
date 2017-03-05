@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -144,7 +143,7 @@ public class Splash extends AppCompatActivity {
                         String pMa = q.getSavedMailId(Splash.this);
 
                         if (pMa == null) {
-                            Intent i = new Intent(Splash.this, login.class);
+                            Intent i = new Intent(Splash.this, login2.class);
 
                             startActivity(i);
                             finish();
@@ -184,7 +183,7 @@ public class Splash extends AppCompatActivity {
 //
 //                       if(pMail_id.compareTo("")==0)
 //                       {
-//                           Intent i = new Intent(Splash.this,login.class);
+//                           Intent i = new Intent(Splash.this,login2.class);
 //
 //                           startActivity(i);
 //                           finish();

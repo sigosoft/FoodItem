@@ -13,9 +13,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +29,7 @@ import customfonts.MyTextView;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class login extends AppCompatActivity {
+public class login2 extends AppCompatActivity {
 
     TextView create;
     MyTextView signin;
@@ -119,7 +116,7 @@ public class login extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(login.this, Registration.class);
+                Intent it = new Intent(login2.this, Registration.class);
                 startActivity(it);
 
             }
@@ -128,7 +125,7 @@ public class login extends AppCompatActivity {
 
 
 
-        fonts1 =  Typeface.createFromAsset(login.this.getAssets(),
+        fonts1 =  Typeface.createFromAsset(login2.this.getAssets(),
                 "fonts/Lato-Regular.ttf");
 
 
@@ -174,7 +171,7 @@ public class login extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(login.this,MainActivity.class);
+                Intent i=new Intent(login2.this,MainActivity.class);
                 startActivity(i);
             }
         });
@@ -220,7 +217,7 @@ public class login extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-//                Intent i = new Intent(login.this, MainActivity.class);
+//                Intent i = new Intent(login2.this, MainActivity.class);
 //                startActivity(i);
 //                finish();
         }
@@ -291,7 +288,7 @@ public class login extends AppCompatActivity {
         private ProgressDialog mProgressDialog;
         HashMap<String, String> nameValuePairs;
         protected void onPreExecute() {
-            mProgressDialog = new ProgressDialog(login.this);
+            mProgressDialog = new ProgressDialog(login2.this);
             mProgressDialog.setMessage("Please wait...");
             mProgressDialog.setCancelable(false);
             mProgressDialog.show();
@@ -310,7 +307,7 @@ public class login extends AppCompatActivity {
 
                     SendRequestServer req = new SendRequestServer();
                     String url1 = "android_login_foodcorner.php";
-                    responsefromserver = req.requestSender(url1, nameValuePairs,login.this);
+                    responsefromserver = req.requestSender(url1, nameValuePairs,login2.this);
 
 
 
@@ -328,12 +325,12 @@ public class login extends AppCompatActivity {
             Log.e("Response", responsefromserver);
             if (responsefromserver == null) {
 
-                Toast.makeText(login.this, "Network Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(login2.this, "Network Error", Toast.LENGTH_SHORT).show();
                 // logginFromMobile();
             } else if (responsefromserver.contains("<html>")) {
                 //Log.e("Response", responsefromserver);
 
-                Toast.makeText(login.this, "<html>", Toast.LENGTH_SHORT).show();
+                Toast.makeText(login2.this, "<html>", Toast.LENGTH_SHORT).show();
                 //  logginFromMobile();
             } else if (responsefromserver.equals("success")) {
 
@@ -341,13 +338,13 @@ public class login extends AppCompatActivity {
                 new LoadData().execute();
 
 
-             //   Toast.makeText(login.this, "Login Success", Toast.LENGTH_LONG).show();
+             //   Toast.makeText(login2.this, "Login Success", Toast.LENGTH_LONG).show();
                // new LoadData().execute();
 
             }
 
             else if (responsefromserver.contains("exist")) {
-                Toast.makeText(login.this, "Invalid User", Toast.LENGTH_SHORT).show();
+                Toast.makeText(login2.this, "Invalid User", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -368,7 +365,7 @@ public class login extends AppCompatActivity {
         protected void onPreExecute() {
 
             this.progressDialog = ProgressDialog.show(
-                    login.this, "", " Loading .....");
+                    login2.this, "", " Loading .....");
 
         }
 
@@ -391,19 +388,19 @@ public class login extends AppCompatActivity {
             else{
 
                 DynexoPrefManager D = new DynexoPrefManager();
-               // D.saveImage(pImage,login.this);
-                D.saveName(pName,login.this);
-               // D.saveArea(pArea,login.this);
-              //  D.saveVehicleType(pVtype,login.this);
-              //  D.saveServiceTypes(pSrtype,login.this);
-               // D.saveUserName(pUname,login.this);
-                D.saveUserMobile(pMobile,login.this);
-                D.saveMailId(pMail_id,login.this);
-                D.saveDistrict(pDistrict,login.this);
-                D.saveState(pState,login.this);
-               // D.saveUserPassword(pass,login.this);
+               // D.saveImage(pImage,login2.this);
+                D.saveName(pName,login2.this);
+               // D.saveArea(pArea,login2.this);
+              //  D.saveVehicleType(pVtype,login2.this);
+              //  D.saveServiceTypes(pSrtype,login2.this);
+               // D.saveUserName(pUname,login2.this);
+                D.saveUserMobile(pMobile,login2.this);
+                D.saveMailId(pMail_id,login2.this);
+                D.saveDistrict(pDistrict,login2.this);
+                D.saveState(pState,login2.this);
+               // D.saveUserPassword(pass,login2.this);
 
-                Intent k = new Intent(login.this, MainActivity.class);
+                Intent k = new Intent(login2.this, MainActivity.class);
                 startActivity(k);
                 finish();
 
@@ -427,7 +424,7 @@ public class login extends AppCompatActivity {
 
                     SendRequestServer req = new SendRequestServer();
                     String url1 = "android_user_data.php";
-                    responsefromserver = req.requestSender(url1, nameValuePairs,login.this);
+                    responsefromserver = req.requestSender(url1, nameValuePairs,login2.this);
 
 //                    ArrayList<NameValuePair>namevaluePairs=new ArrayList<NameValuePair>();
 //

@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity
           DynexoPrefManager D = new DynexoPrefManager();
 
           D.saveMailId(null,MainActivity.this);
-          Intent i = new Intent(MainActivity.this, login.class);
+          Intent i = new Intent(MainActivity.this, login2.class);
           startActivity(i);
 
           finish();
