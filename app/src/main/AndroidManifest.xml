@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dynex_000.fooditem">
+    package="sigosoft.android.jackandtrades">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -20,15 +18,9 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".login2"
+            android:name=".Login"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_registration"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Help"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_help"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -44,13 +36,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".About"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_about"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".NoCunnectionPage"
+            android:name=".NoConnectionPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Network Error"
             android:screenOrientation="portrait"
@@ -67,40 +53,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".HelpRegistration"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="How to Register"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HelpLogin"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".GridviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_help_login"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".profile"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_help_login"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ListviewActivity"
-            android:label="@string/title_activity_help_login"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HelpSearch"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_help_search"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -113,17 +66,21 @@
             android:name=".Single_view_Search_Result"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Edit_Profile"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Procnfm"
-            android:label="@string/title_activity_product_cnfm"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
             android:name=".History"
             android:label="@string/title_activity_history"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".OutLetActivity" />
+        <activity android:name=".Listnew" />
+        <activity
+            android:name=".CartActivity"
+            android:label="CartActivity"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".History2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HistoryDetailsActivity" />
+        <activity android:name=".ProductActivity"></activity>
     </application>
 
 </manifest>

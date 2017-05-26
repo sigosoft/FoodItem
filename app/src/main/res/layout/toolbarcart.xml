@@ -33,7 +33,7 @@
         android:layout_height="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="right"
-        android:background="@drawable/shopping"/>
+        android:background="@drawable/history"/>
 
 
 

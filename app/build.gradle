@@ -4,11 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion '25.0.1'
     defaultConfig {
-        applicationId 'com.example.dynex_000.foodcorner'
+        applicationId 'sigosoft.android.jackandtrades'
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "6"
     }
     buildTypes {
         release {
@@ -33,4 +33,11 @@ dependencies {
     compile 'com.alexzh:circleimageview:1.1.2@aar'
     compile 'com.mikhaellopez:circularimageview:2.0.1'
     compile project(':picasso-2.5.2')
+    compile 'com.loopj.android:android-async-http:1.4.9'
+//    compile files('E:/Sigosoft/FoodItem/.idea/libraries/mail.jar')
+//    compile files('E:/Sigosoft/FoodItem/.idea/libraries/additionnal.jar')
+//    compile files('E:/Sigosoft/FoodItem/.idea/libraries/activation.jar')
+//    compile files('libs/additionnal.jar')
+//    compile files('libs/activation.jar')
+//    compile files('libs/mail.jar')
 }

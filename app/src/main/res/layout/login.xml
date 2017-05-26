@@ -28,7 +28,7 @@
             android:padding="9dp"
             tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_below="@+id/image"
         android:id="@+id/linear2"
         android:layout_width="match_parent"
@@ -37,17 +37,17 @@
         android:layout_marginTop="12dp"
 
         tools:ignore="ObsoleteLayoutParam">
-    <ImageView
-        android:id="@+id/image"
-        android:layout_gravity="center"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="180dp"
-        android:layout_centerHorizontal="true"
+    <!--<ImageView-->
+        <!--android:id="@+id/image"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_width="90dp"-->
+        <!--android:layout_height="90dp"-->
+        <!--android:src="@drawable/logo"-->
+        <!--android:layout_marginTop="180dp"-->
+        <!--android:layout_centerHorizontal="true"-->
 
 
-        tools:ignore="ContentDescription" />
+        <!--tools:ignore="ContentDescription" />-->
 
 </LinearLayout>-->
 
@@ -104,6 +104,7 @@
                 android:background="#0000"
                 android:padding="16dp"
                 android:gravity="left"
+                android:text=""
                 tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
 
             <View
@@ -124,12 +125,14 @@
                 android:layout_marginRight="46dp"
                 android:textColorHint="@color/colorhint"
                 android:textColor="@color/colortext"
+                android:text=""
                 android:background="#0000"
                 android:padding="16dp"
                 android:inputType="textPassword"
-                android:drawableRight="@drawable/eye"
+
 
                 tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+            //  android:drawableRight="@drawable/eye"
 
             <View
                 android:layout_width="match_parent"
@@ -167,7 +170,7 @@
                 android:id="@+id/fullscreen_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dun't have account?"
+                android:text="Don't have account?"
                 android:layout_above="@+id/create"
                 android:gravity="center"
                 android:lines="1"
@@ -178,7 +181,7 @@
                 android:id="@+id/create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register now.."
+                android:text="Quick Enquiry"
                 android:textColor="#f2a734"
                 android:layout_alignParentBottom="true"
                 android:gravity="center"

@@ -1,66 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#EEEEEEEE"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="vertical"
-    android:background="#EEEEEEEE">
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical">
 
     <LinearLayout
 
-        android:focusable="false"
-        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical">
 
 
         <LinearLayout
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:background="@drawable/round1"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:orientation="horizontal"
             android:padding="10dp">
+
             <com.alexzh.circleimageview.CircleImageView
                 android:id="@+id/banar1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/white"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                app:view_borderWidth="0dp"
-                app:view_borderColor="#cccccc" />
-
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:view_borderColor="#cccccc"
+                app:view_borderWidth="0dp" />
 
 
             <LinearLayout
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:id="@+id/footer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:orientation="vertical">
-                <customfonts.MyTextView1
-                    android:id="@+id/title"
+
+                <TextView
+                    android:id="@+id/id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:visibility="gone" />
+
+                <customfonts.MyTextView1
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#00000000"
                     android:hint="Andrew Simonds "
                     android:inputType="text"
                     android:textColor="#000"
                     android:textColorHint="#000"
-                    android:background="#00000000"
-                    android:textSize="16dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp" />
+                    android:textSize="16dp" />
 
 
                 <LinearLayout
@@ -69,91 +78,85 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:id="@+id/image1"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginLeft="20dp"
-                        android:background="@drawable/rps"/>
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/rps"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
 
 
                     <customfonts.MyTextView1
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CEO"
-                        android:textSize="16dp"
-                        android:textColor="#f61a1a"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"/>
-
-
+                        android:layout_marginTop="5dp"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:text="CEO"
+                        android:textColor="#f61a1a"
+                        android:textSize="16dp" />
 
 
                 </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-20dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="90dp">
 
-                <!--<LinearLayout-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_gravity="right"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<ImageButton-->
-                        <!--android:focusable="false"-->
-                        <!--android:focusableInTouchMode="false"-->
-                        <!--android:id="@+id/minus"-->
-                        <!--android:layout_width="25dp"-->
-                        <!--android:layout_height="25dp"-->
-                        <!--android:layout_marginTop="8dp"-->
-                        <!--android:layout_marginLeft="20dp"-->
-                        <!--android:background="@drawable/minus"/>-->
-
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/txt"-->
-                        <!--android:layout_width="30dp"-->
-                        <!--android:layout_height="27dp"-->
-                        <!--android:layout_centerHorizontal="true"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:inputType="number"-->
-                        <!--android:text="0"-->
-                        <!--android:layout_marginTop="5dp"-->
-                        <!--android:textAlignment="center"-->
-                        <!--android:layout_marginLeft="10dp"-->
-                        <!--android:background="@layout/rounded_border_edittext"-->
-                        <!--/>-->
-
-                    <!--<ImageButton-->
-                        <!--android:focusable="false"-->
-                        <!--android:focusableInTouchMode="false"-->
-                        <!--android:id="@+id/plus"-->
-                        <!--android:layout_width="25dp"-->
-                        <!--android:layout_height="25dp"-->
-                        <!--android:layout_marginTop="8dp"-->
-                        <!--android:layout_marginLeft="10dp"-->
-                        <!--android:background="@drawable/plus"/>-->
+                    <ImageButton
+                        android:id="@+id/minuscart"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/minus"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
 
 
+                    <EditText
+                        android:id="@+id/txtqtycart"
+                        android:layout_width="37dp"
+                        android:layout_height="22dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@layout/rounded_border_edittext"
+                        android:inputType="number"
+                        android:text="0"
+                        android:textAlignment="center" />
 
+                    <ImageButton
+                        android:id="@+id/pluscart"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/plus"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
 
+                    <!--
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="100dp"
 
-                <!--</LinearLayout>-->
-
-
-                <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_marginLeft="6dp"-->
-                    <!--android:layout_marginRight="16dp"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:background="#dad8d8"/>-->
-
-
+                                            android:text="ADD TO CART"
+                                            android:textStyle="bold"
+                                            android:textColor="#f2a734"
+                                            android:id="@+id/add_to_cart" />
+                    -->
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -161,16 +164,7 @@
         </LinearLayout>
 
 
-
-
-
-
-
-
-
     </LinearLayout>
-
-
 
 
 </LinearLayout>
